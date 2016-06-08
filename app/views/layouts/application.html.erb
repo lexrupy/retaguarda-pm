@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sistema de Retaguarda</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= link_to "Início", '/' %> |
+<% if current_user %>
+  Bem Vindo <b><%= current_user.nome %></b> | <%= link_to "Sair", '/logout' %>
+<% else %>
+  <%= link_to 'Entrar', '/login' %>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unidade:</strong>
+  <%= @opo.unidade.nome %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @opo.numero %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @opo.descricao %>
+</p>
+
+<p>
+  <strong>Data inicio:</strong>
+  <%= @opo.data_inicio %>
+</p>
+
+<p>
+  <strong>Data fim:</strong>
+  <%= @opo.data_fim %>
+</p>
+
+<p>
+  <strong>Texto:</strong>
+  <%= @opo.texto %>
+</p>
+
+<%= link_to 'Editar', edit_opo_path(@opo) %> |
+<%= link_to 'Voltar', opos_path %>

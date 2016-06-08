@@ -1,0 +1,6 @@
+
+<p><%= link_to "Usuários", users_path %></p>
+<% if current_user.admin? -%>
+<p><%= link_to "Unidades", unidades_path %></p>
+<% end -%>
+<p><%= link_to "Ordens", opos_path %></p>

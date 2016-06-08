@@ -1,0 +1,32 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if current_user.admin? -%>
+    <div class="field">
+      <%= f.label :unidade_id %><br>
+      <%= select("user", "unidade_id", Unidade.all.collect {|p| [ p.nome, p.id ] }, {include_blank: 'Nenhum'}) %>
+    </div>    
+  <% end -%>
+  
+  <div class="field">
+    <%= f.label :matricula %><br>
+    <%= f.text_field :matricula %>
+  </div>
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

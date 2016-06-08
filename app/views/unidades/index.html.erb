@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Unidades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unidades.each do |unidade| %>
+      <tr>
+        <td><%= unidade.nome %></td>
+        <td><%= link_to 'Exibir', unidade %></td>
+        <td><%= link_to 'Editar', edit_unidade_path(unidade) %></td>
+        <td><%= link_to 'Apagar', unidade, method: :delete, data: { confirm: 'Tem Certeza?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Unidade', new_unidade_path %>
