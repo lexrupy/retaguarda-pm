@@ -14,32 +14,33 @@
 ActiveRecord::Schema.define(version: 20160608025210) do
 
   create_table "opos", force: :cascade do |t|
-    t.integer  "unidade_id"
-    t.string   "numero"
-    t.string   "descricao"
+    t.integer  "unidade_id",  limit: 4
+    t.string   "numero",      limit: 255
+    t.string   "descricao",   limit: 255
     t.date     "data_inicio"
     t.date     "data_fim"
-    t.text     "texto"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.text     "texto",       limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  add_index "opos", ["unidade_id"], name: "index_opos_on_unidade_id"
+  add_index "opos", ["unidade_id"], name: "index_opos_on_unidade_id", using: :btree
 
   create_table "unidades", force: :cascade do |t|
-    t.string   "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "nome",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "matricula"
-    t.string   "nome"
+    t.string   "matricula",       limit: 255
+    t.string   "nome",            limit: 255
     t.boolean  "admin"
-    t.integer  "unidade_id"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "unidade_id",      limit: 4
+    t.string   "password_digest", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
+  add_foreign_key "opos", "unidades"
 end
