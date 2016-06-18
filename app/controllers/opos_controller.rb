@@ -5,7 +5,11 @@ class OposController < ApplicationController
   # GET /opos.json
   def index
     if current_user.admin?
-      @opos = Opo.all
+      if params[:unidade_id] 
+        @opos = Opo.where(unidade_id: params[:unidade_id])
+      else
+        @opos = Opo.all
+      end
     else
       @opos = current_user.unidade.oops
     end
