@@ -14,12 +14,11 @@ class ApplicationController < ActionController::Base
   def authorize
     case request.format
       when Mime::XML, Mime::ATOM, Mime::JSON
-        #if user = authenticate_with_http_basic { |u, p| User.authenticate(u, p) }
-        #  @current_user = user
-        #else
-        #  request_http_basic_authentication
-        #end
-         @current_user ||= User.find(1)
+        if user = authenticate_with_http_basic { |u, p| User.authenticate(u, p) }
+          @current_user = user
+        else
+          request_http_basic_authentication
+        end
       else
         redirect_to '/login' unless current_user
       end
