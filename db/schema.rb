@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160608025210) do
+ActiveRecord::Schema.define(version: 20160620025710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 20160608025210) do
     t.text     "texto"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "hora"
+    t.string   "local"
+    t.string   "evento"
+    t.string   "solicitante"
   end
 
   add_index "opos", ["unidade_id"], name: "index_opos_on_unidade_id", using: :btree

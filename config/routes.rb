@@ -6,6 +6,14 @@ Rails.application.routes.draw do
 
   root to: 'dashboard#show'
 
+
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :opos
+    end
+  end
+
+
   # these routes are for showing users a login form, logging them in, and logging them out.
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

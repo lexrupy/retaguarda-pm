@@ -5,13 +5,9 @@ class OposController < ApplicationController
   # GET /opos.json
   def index
     if current_user.admin?
-      if params[:unidade_id] 
-        @opos = Opo.where(unidade_id: params[:unidade_id])
-      else
-        @opos = Opo.all
-      end
+      @opos = Opo.all
     else
-      @opos = current_user.unidade.oops
+      @opos = current_user.unidade.opos
     end
   end
 
@@ -83,6 +79,6 @@ class OposController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def opo_params
-      params.require(:opo).permit(:unidade_id, :numero, :descricao, :data_inicio, :data_fim, :texto)
+      params.require(:opo).permit(:unidade_id, :numero, :descricao, :hora, :local, :evento, :solicitante, :data_inicio, :data_fim, :texto)
     end
 end

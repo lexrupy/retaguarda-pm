@@ -2,11 +2,11 @@ class Opo < ActiveRecord::Base
   belongs_to :unidade
 
   def inicio
-    "#{data_inicio.day}/#{data_inicio.month}/#{data_inicio.year}"
+    data_inicio.strftime('%d/%m/%Y')
   end
 
   def fim
-    "#{data_fim.day}/#{data_fim.month}/#{data_fim.year}"
+    data_fim.strftime('%d/%m/%Y')
   end
 
 end

@@ -22,10 +22,7 @@
     <%= f.label :numero %><br>
     <%= f.text_field :numero %>
   </div>
-  <div class="field">
-    <%= f.label :descricao %><br>
-    <%= f.text_field :descricao %>
-  </div>
+
   <div class="field">
     <%= f.label :data_inicio %><br>
     <%= f.date_select :data_inicio %>
@@ -34,9 +31,35 @@
     <%= f.label :data_fim %><br>
     <%= f.date_select :data_fim %>
   </div>
+
+  <div class="field">
+    <%= f.label :descricao %><br>
+    <%= f.text_field :descricao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hora %><br>
+    <%= f.text_field :hora %>
+  </div>
+
+  <div class="field">
+    <%= f.label :local %><br>
+    <%= f.text_field :local %>
+  </div>
+
+  <div class="field">
+    <%= f.label :evento %><br>
+    <%= f.text_field :evento %>
+  </div>
+
+  <div class="field">
+    <%= f.label :solicitante %><br>
+    <%= f.text_field :solicitante %>
+  </div>
+
   <div class="field">
     <%= f.label :texto %><br>
-    <%= f.text_area :texto %>
+    <%= f.text_area :texto, cols: "80", rows: "15" %>
   </div>
   <div class="actions">
     <%= f.submit %>
