@@ -79,6 +79,6 @@ class OposController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def opo_params
-      params.require(:opo).permit(:unidade_id, :numero, :descricao, :hora, :local, :evento, :solicitante, :data_inicio, :data_fim, :texto)
+      params.require(:opo).permit(:unidade_id, :numero, :descricao, :data_inicio, :data_fim, :texto, :hora, :local, :evento, :solicitante)
     end
 end
