@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
     return user if user && user.authenticate(p)
   end
 
+  def nome_unidade
+    unidade.nome if unidade
+  end
+
 end

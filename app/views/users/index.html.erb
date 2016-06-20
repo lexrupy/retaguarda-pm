@@ -7,6 +7,9 @@
     <tr>
       <th>Matricula</th>
       <th>Nome</th>
+      <% if current_user.admin? -%>
+      <th>Unidade</th>
+      <% end -%>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,9 +19,14 @@
       <tr>
         <td><%= user.matricula %></td>
         <td><%= user.nome %></td>
+        <% if current_user.admin? -%>
+        <td><%= user.nome_unidade %></td>
+        <% end -%>
         <td><%= link_to 'Exibir', user %></td>
         <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <% if current_user.admin? -%>
         <td><%= link_to 'Apagar', user, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+        <% end -%>
       </tr>
     <% end %>
   </tbody>

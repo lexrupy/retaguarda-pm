@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     # Senha padrao = matricula
     @user.password = @user.matricula
     @user.password_confirmation = @user.matricula
+    @user.admin = false
 
     # Usuario comum so pode criar usuarios em sua propria unidade
     unless current_user.admin?
