@@ -9,14 +9,15 @@ class Visit < ActiveRecord::Base
   def self.gerar_visitas(data_final)
     Visit.where('data_visita >= ?', Date.today).destroy_all
     dias = (data_final.to_date - Date.today.to_date).to_i
-    apenado_ids = Apenado.ids.shuffle
+    apenado_ids = Apenado.where(ativo:true).ids.shuffle
+    count = apenado_ids.size
     pos = 0
     i = 0
     begin
       data = i.day.from_now
       apenado_1_id = apenado_ids[pos]
       pos += 1
-      if pos > apenado_ids.size - 1
+      if pos > (count-1).to_i
         pos = 0
       end
       apenado_2_id = apenado_ids[pos]
@@ -25,7 +26,7 @@ class Visit < ActiveRecord::Base
       Visit.create(apenado_id: apenado_2_id, data_visita: data)
 
       pos += 1
-      if pos > apenado_ids.size -1
+      if pos > (count -1).to_i
         pos = 0
       end
 
