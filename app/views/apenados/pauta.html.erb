@@ -5,3 +5,16 @@
   </div>
   <%= submit_tag  'Gerar' %>
 <% end -%>
+
+  <p>
+    <strong>Visitas Agendadas:</strong>
+  </p>
+
+<% @visitas.each do |v| -%>
+
+  <p>
+    <strong>Apenado:</strong>
+    <%= v.apenado_nome %> - <%= v.data_visita.strftime('%d/%m/%Y') %>
+  </p>
+
+<% end -%>
