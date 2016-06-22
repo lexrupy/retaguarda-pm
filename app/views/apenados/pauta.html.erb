@@ -1,0 +1,7 @@
+<%= form_tag gerar_pauta_apenados_url, method: :post do %>
+  <div class="field">
+    <%= label_tag 'data_fim', "Gerar pauta até a data" %><br>
+    <%= select_date(Date.today, order: [:day, :month, :year], prefix: 'data_fim') %>
+  </div>
+  <%= submit_tag  'Gerar' %>
+<% end -%>

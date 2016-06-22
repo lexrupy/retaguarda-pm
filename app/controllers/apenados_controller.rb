@@ -21,6 +21,16 @@ class ApenadosController < ApplicationController
   def edit
   end
 
+  # GET /apenados/pauta
+  def pauta
+    
+  end
+
+  # PUT /apenados/gerar_pauta
+  def gerar_pauta
+    redirect_to pauta_apenados_url
+  end
+
   # POST /apenados
   # POST /apenados.json
   def create

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :apenados
+  resources :apenados do
+    get 'pauta', on: :collection
+    post 'gerar_pauta', on: :collection
+  end
+
   resources :opos
   resources :users
   resources :unidades

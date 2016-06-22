@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  apenado_id: 
+  data_visita: 2016-06-22
+  realizada: false
+  alteracao: false
+  ocorrencia: MyString
+
+two:
+  apenado_id: 
+  data_visita: 2016-06-22
+  realizada: false
+  alteracao: false
+  ocorrencia: MyString
