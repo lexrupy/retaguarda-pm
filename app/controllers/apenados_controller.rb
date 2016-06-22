@@ -69,6 +69,7 @@ class ApenadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apenado_params
-      params.require(:apenado).permit(:nome, :termino, :restricoes, :sexo, :nascimento, :mae, :documentos, :naturalidade, :condenado_por, :endereco, :ativo, :motivo_inativo)
+      params.require(:apenado).permit(:nome, :termino, :restricoes, :sexo, :nascimento, :mae, :documentos, :naturalidade, 
+        :condenado_por, :endereco, :ativo, :motivo_inativo, photos_attributes: [:id, :image, :_destroy])
     end
 end

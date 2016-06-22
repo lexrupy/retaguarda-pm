@@ -13,52 +13,64 @@
 
   <div class="field">
     <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
+    <%= f.text_field :nome, size: 30 %>
   </div>
   <div class="field">
-    <%= f.label :termino %><br>
+    <%= f.label :termino, "Previsão de Término" %><br>
     <%= f.date_select :termino %>
   </div>
   <div class="field">
-    <%= f.label :restricoes %><br>
-    <%= f.text_area :restricoes %>
+    <%= f.label :restricoes, "Restrições" %><br>
+    <%= f.text_area :restricoes, rows: 5, cols: 70 %>
   </div>
   <div class="field">
     <%= f.label :sexo %><br>
     <%= f.select :sexo, ["Masculino", "Feminino"], prompt: "---Selecione---" %>
   </div>
   <div class="field">
-    <%= f.label :nascimento %><br>
+    <%= f.label :nascimento, "Data de Nascimento" %><br>
     <%= f.date_select :nascimento %>
   </div>
   <div class="field">
-    <%= f.label :mae %><br>
-    <%= f.text_field :mae %>
+    <%= f.label :mae, "Nome da Mãe" %><br>
+    <%= f.text_field :mae, size: 30 %>
   </div>
   <div class="field">
     <%= f.label :documentos %><br>
-    <%= f.text_field :documentos %>
+    <%= f.text_field :documentos, size: 40 %>
   </div>
   <div class="field">
     <%= f.label :naturalidade %><br>
-    <%= f.text_field :naturalidade %>
+    <%= f.text_field :naturalidade, size: 45 %>
   </div>
   <div class="field">
     <%= f.label :condenado_por %><br>
-    <%= f.text_field :condenado_por %>
+    <%= f.text_field :condenado_por, size: 35 %>
   </div>
   <div class="field">
-    <%= f.label :endereco %><br>
-    <%= f.text_field :endereco %>
+    <%= f.label :endereco, "Endereço" %><br>
+    <%= f.text_field :endereco, size: 70 %>
   </div>
   <div class="field">
     <%= f.label :ativo %><br>
     <%= f.select :ativo, [["Sim", true], ["Não", false]] %>
   </div>
   <div class="field">
-    <%= f.label :motivo_inativo %><br>
-    <%= f.text_field :motivo_inativo %>
+    <%= f.label :motivo_inativo, "Motivo Inativação" %><br>
+    <%= f.text_field :motivo_inativo, size: 35 %>
   </div>
+
+  <%= f.fields_for :photos do |builder| -%>
+  <fieldset>
+    <%= render 'photo_fields', :f => builder %>
+  </fieldset>
+  <% end -%>
+  
+
+  <div class="field">
+    <%= link_to_add_fields "Nova Imagem", f, :photos %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

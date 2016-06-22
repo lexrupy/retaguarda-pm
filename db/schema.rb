@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622011830) do
+ActiveRecord::Schema.define(version: 20160622164341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 20160622011830) do
 
   add_index "opos", ["unidade_id"], name: "index_opos_on_unidade_id", using: :btree
 
+  create_table "photos", force: :cascade do |t|
+    t.string   "image"
+    t.integer  "apenado_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "photos", ["apenado_id"], name: "index_photos_on_apenado_id", using: :btree
+
   create_table "unidades", force: :cascade do |t|
     t.string   "nome"
     t.datetime "created_at", null: false
@@ -67,4 +76,5 @@ ActiveRecord::Schema.define(version: 20160622011830) do
   end
 
   add_foreign_key "opos", "unidades"
+  add_foreign_key "photos", "apenados"
 end

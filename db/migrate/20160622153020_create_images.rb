@@ -3,6 +3,9 @@ class CreateImages < ActiveRecord::Migration
     create_table :images do |t|
       t.string :filename
       t.string :short_name
+      
+      t.integer :imageable_id
+      t.string  :imageable_type
 
       t.timestamps null: false
     end
