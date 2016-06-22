@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: pmsc-timb
+  api_key: '533781356219468'
+  api_secret: FhYmW2hL_eoPaDV8S3P-Xm_gHLg
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: pmsc-timb
+  api_key: '533781356219468'
+  api_secret: FhYmW2hL_eoPaDV8S3P-Xm_gHLg
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: pmsc-timb
+  api_key: '533781356219468'
+  api_secret: FhYmW2hL_eoPaDV8S3P-Xm_gHLg
+  enhance_image_tag: true
+  static_image_support: false

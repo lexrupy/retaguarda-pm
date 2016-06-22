@@ -1,0 +1,2 @@
+module ApenadosHelper
+end

@@ -1,0 +1,65 @@
+<%= form_for(@apenado) do |f| %>
+  <% if @apenado.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apenado.errors.count, "error") %> prohibited this apenado from being saved:</h2>
+
+      <ul>
+      <% @apenado.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :termino %><br>
+    <%= f.date_select :termino %>
+  </div>
+  <div class="field">
+    <%= f.label :restricoes %><br>
+    <%= f.text_area :restricoes %>
+  </div>
+  <div class="field">
+    <%= f.label :sexo %><br>
+    <%= f.select :sexo, ["Masculino", "Feminino"], prompt: "---Selecione---" %>
+  </div>
+  <div class="field">
+    <%= f.label :nascimento %><br>
+    <%= f.date_select :nascimento %>
+  </div>
+  <div class="field">
+    <%= f.label :mae %><br>
+    <%= f.text_field :mae %>
+  </div>
+  <div class="field">
+    <%= f.label :documentos %><br>
+    <%= f.text_field :documentos %>
+  </div>
+  <div class="field">
+    <%= f.label :naturalidade %><br>
+    <%= f.text_field :naturalidade %>
+  </div>
+  <div class="field">
+    <%= f.label :condenado_por %><br>
+    <%= f.text_field :condenado_por %>
+  </div>
+  <div class="field">
+    <%= f.label :endereco %><br>
+    <%= f.text_field :endereco %>
+  </div>
+  <div class="field">
+    <%= f.label :ativo %><br>
+    <%= f.select :ativo, [["Sim", true], ["Não", false]] %>
+  </div>
+  <div class="field">
+    <%= f.label :motivo_inativo %><br>
+    <%= f.text_field :motivo_inativo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

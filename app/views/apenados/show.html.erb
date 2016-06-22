@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @apenado.nome %>
+</p>
+
+<p>
+  <strong>Termino:</strong>
+  <%= @apenado.termino %>
+</p>
+
+<p>
+  <strong>Restricoes:</strong>
+  <%= simple_format @apenado.restricoes %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @apenado.sexo %>
+</p>
+
+<p>
+  <strong>Nascimento:</strong>
+  <%= @apenado.nascimento.strftime('%d/%m/%Y') %>
+</p>
+
+<p>
+  <strong>Mae:</strong>
+  <%= @apenado.mae %>
+</p>
+
+<p>
+  <strong>Documentos:</strong>
+  <%= @apenado.documentos %>
+</p>
+
+<p>
+  <strong>Naturalidade:</strong>
+  <%= @apenado.naturalidade %>
+</p>
+
+<p>
+  <strong>Condenado por:</strong>
+  <%= @apenado.condenado_por %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @apenado.endereco %>
+</p>
+
+<p>
+  <strong>Ativo:</strong>
+  <%= @apenado.ativo %>
+</p>
+
+<p>
+  <strong>Motivo inativo:</strong>
+  <%= @apenado.motivo_inativo %>
+</p>
+
+<%= link_to 'Editar', edit_apenado_path(@apenado) %> |
+<%= link_to 'Voltar', apenados_path %>
