@@ -7,14 +7,13 @@
 <% end -%>
 
   <p>
-    <strong>Visitas Agendadas:</strong>
+    <strong>Visitas Agendadas a partir de hoje:</strong>
   </p>
 
 <% @visitas.each do |v| -%>
 
   <p>
-    <strong>Apenado:</strong>
-    <%= v.apenado_nome %> - <%= v.data_visita.strftime('%d/%m/%Y') %>
+    <%= v.data_visita.strftime('%d/%m/%Y') %> - 
+    <strong><%= v.apenado_nome %></strong>
   </p>
-
 <% end -%>

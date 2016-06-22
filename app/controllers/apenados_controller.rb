@@ -28,6 +28,11 @@ class ApenadosController < ApplicationController
 
   # PUT /apenados/gerar_pauta
   def gerar_pauta
+    data = params[:data_fim]
+    data_fim = Date.new data["year"].to_i, data["month"].to_i, data["day"].to_i
+
+
+    Visit.gerar_visitas(data_fim)
     redirect_to pauta_apenados_url
   end
 
