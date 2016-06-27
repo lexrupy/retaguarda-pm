@@ -9,4 +9,8 @@ class Opo < ActiveRecord::Base
     data_fim.strftime('%d/%m/%Y')
   end
 
+  def unidade_nome
+    unidade.nome if unidade
+  end
+
 end

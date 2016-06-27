@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_user.admin? -%>
+<p>
+  <strong>Unidade:</strong>
+  <%= @apenado.unidade_nome %>
+</p>
+<% end -%>
+
 <p>
   <strong>Nome:</strong>
   <%= @apenado.nome %>

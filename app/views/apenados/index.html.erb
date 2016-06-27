@@ -5,6 +5,9 @@
 <table>
   <thead>
     <tr>
+      <% if current_user.admin? -%>
+      <th>Unidade</th>
+      <% end -%>
       <th>Nome</th>
       <th>Endereço</th>
       <th>Ativo</th>
@@ -15,6 +18,9 @@
   <tbody>
     <% @apenados.each do |apenado| %>
       <tr>
+      <% if current_user.admin? -%>
+        <td><%= apenado.unidade_nome %></td>
+      <% end -%>
         <td><%= apenado.nome %></td>
         <td><%= apenado.endereco %></td>
         <td><%= apenado.ativo? ? "Sim" : "Não" %></td>

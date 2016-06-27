@@ -74,7 +74,11 @@ class OposController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_opo
-      @opo = Opo.find(params[:id])
+      if current_user.admin?
+        @opo = Opo.find(params[:id])
+      else
+        @opo = current_user.unidade.opos.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

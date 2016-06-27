@@ -5,6 +5,9 @@
 <table>
   <thead>
     <tr>
+      <% if current_user.admin? -%>
+      <th>Unidade</th>
+      <% end -%>
       <th>Número</th>
       <th>Descrição</th>
       <th>Data início</th>
@@ -16,6 +19,9 @@
   <tbody>
     <% @opos.each do |opo| %>
       <tr>
+      <% if current_user.admin? -%>
+        <td><%= opo.unidade_nome %></td>
+      <% end -%>
         <td><%= opo.numero %></td>
         <td><%= opo.descricao %></td>
         <td><%= opo.inicio %></td>

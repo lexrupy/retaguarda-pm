@@ -11,6 +11,13 @@
     </div>
   <% end %>
 
+    <% if current_user.admin? -%>
+    <div class="field">
+      <%= f.label :unidade_id %><br>
+      <%= select("apenado", "unidade_id", Unidade.all.collect {|p| [ p.nome, p.id ] }, {include_blank: false}) %>
+    </div>    
+  <% end -%>
+
   <div class="field">
     <%= f.label :nome %><br>
     <%= f.text_field :nome, size: 30 %>

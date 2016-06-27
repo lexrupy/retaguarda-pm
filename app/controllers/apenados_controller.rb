@@ -4,7 +4,11 @@ class ApenadosController < ApplicationController
   # GET /apenados
   # GET /apenados.json
   def index
-    @apenados = Apenado.all
+    if current_user.admin?
+      @apenados = Apenado.all
+    else
+      @opos = current_user.unidade.apenados
+    end
   end
 
   # GET /apenados/1
@@ -32,7 +36,7 @@ class ApenadosController < ApplicationController
     data_fim = Date.new data["year"].to_i, data["month"].to_i, data["day"].to_i
 
 
-    Visit.gerar_visitas(data_fim)
+    Visit.gerar_visitas(data_fim, current_user.unidade_id)
     redirect_to pauta_apenados_url
   end
 
@@ -40,6 +44,11 @@ class ApenadosController < ApplicationController
   # POST /apenados.json
   def create
     @apenado = Apenado.new(apenado_params)
+
+
+    unless current_user.admin?
+      @apenado.unidade_id = current_user.unidade_id
+    end
 
     respond_to do |format|
       if @apenado.save
@@ -79,12 +88,17 @@ class ApenadosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_apenado
-      @apenado = Apenado.find(params[:id])
+      if current_user.admin?
+         @apenado = Apenado.find(params[:id])
+      else
+        @apenado = current_user.unidade.apenados.find(params[:id])
+      end
+     
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apenado_params
-      params.require(:apenado).permit(:nome, :termino, :restricoes, :sexo, :nascimento, :mae, :documentos, :naturalidade, 
+      params.require(:apenado).permit(:unidade_id, :nome, :termino, :restricoes, :sexo, :nascimento, :mae, :documentos, :naturalidade, 
         :condenado_por, :endereco, :ativo, :motivo_inativo, photos_attributes: [:id, :image, :_destroy])
     end
 end
