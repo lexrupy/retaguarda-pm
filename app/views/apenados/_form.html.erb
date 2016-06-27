@@ -67,6 +67,11 @@
     <%= f.text_field :motivo_inativo, size: 35 %>
   </div>
 
+  <div class="field">
+    <%= f.label :outras_informacoes, "Outras Informações" %><br>
+    <%= f.text_field :outras_informacoes, size: 70 %>
+  </div>
+
   <%= f.fields_for :photos do |builder| -%>
   <fieldset>
     <%= render 'photo_fields', :f => builder %>
