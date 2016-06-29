@@ -27,7 +27,7 @@ class ApenadosController < ApplicationController
 
   # GET /apenados/pauta
   def pauta
-    @visitas = Visit.where('data_visita >= ?', Date.today)  
+    @visitas = current_user.unidade.visits.where('data_visita >= ?', Date.today)  
   end
 
   # PUT /apenados/gerar_pauta

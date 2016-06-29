@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627023342) do
+ActiveRecord::Schema.define(version: 20160629092745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,12 +96,15 @@ ActiveRecord::Schema.define(version: 20160627023342) do
     t.string   "ocorrencia"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "unidade_id"
   end
 
   add_index "visits", ["apenado_id"], name: "index_visits_on_apenado_id", using: :btree
+  add_index "visits", ["unidade_id"], name: "index_visits_on_unidade_id", using: :btree
 
   add_foreign_key "apenados", "unidades"
   add_foreign_key "opos", "unidades"
   add_foreign_key "photos", "apenados"
   add_foreign_key "visits", "apenados"
+  add_foreign_key "visits", "unidades"
 end
