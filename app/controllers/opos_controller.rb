@@ -5,9 +5,9 @@ class OposController < ApplicationController
   # GET /opos.json
   def index
     if current_user.admin?
-      @opos = Opo.all
+      @opos = Opo.all.paginate(:page => params[:page])
     else
-      @opos = current_user.unidade.opos
+      @opos = current_user.unidade.opos.paginate(:page => params[:page])
     end
   end
 

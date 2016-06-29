@@ -4,7 +4,7 @@ class UnidadesController < ApplicationController
   # GET /unidades
   # GET /unidades.json
   def index
-    @unidades = Unidade.all
+    @unidades = Unidade.all.paginate(:page => params[:page])
   end
 
   # GET /unidades/1

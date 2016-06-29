@@ -5,9 +5,9 @@ class ApenadosController < ApplicationController
   # GET /apenados.json
   def index
     if current_user.admin?
-      @apenados = Apenado.all
+      @apenados = Apenado.all.paginate(:page => params[:page])
     else
-      @opos = current_user.unidade.apenados
+      @opos = current_user.unidade.apenados.paginate(:page => params[:page])
     end
   end
 
