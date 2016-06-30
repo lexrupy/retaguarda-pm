@@ -6,6 +6,23 @@ pt-BR:
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+      opo:
+        one: Ordem
+        other: Ordens
+      apenado:
+        one: Apenado
+        other: Apenados
+      unidade:
+        one: Unidade
+        other: Unidades
+      visit:
+        one: Visita
+        other: Visitas
+
   date:
     abbr_day_names:
     - Dom
@@ -215,3 +232,9 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
+
+
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Próxima &#8594;"
+    page_gap: "&hellip;"

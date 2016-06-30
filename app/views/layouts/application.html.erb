@@ -7,15 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= link_to "Início", '/' %> |
-<% if current_user %>
-  Bem Vindo <b><%= current_user.nome %></b> - <i><%= current_user.nome_unidade %></i> | <%= link_to "Sair", '/logout' %>
-<% else %>
-  <%= link_to 'Entrar', '/login' %>
-<% end %>
-
-<%= yield %>
-
+  <div id="container">
+    <%= link_to "Início", '/' %> |
+    <% if current_user %>
+      Bem Vindo <b><%= current_user.nome %></b> - <i><%= current_user.nome_unidade %></i> | <%= link_to "Sair", '/logout' %>
+    <% else %>
+      <%= link_to 'Entrar', '/login' %>
+    <% end %>
+    <%= yield %>
+  </div>
 </body>
 </html>
