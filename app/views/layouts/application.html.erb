@@ -10,11 +10,17 @@
   <div id="container">
     <%= link_to "Início", '/' %> |
     <% if current_user %>
-      Bem Vindo <b><%= current_user.nome %></b> - <i><%= current_user.nome_unidade %></i> | <%= link_to "Sair", '/logout' %>
+      Bem Vindo <b><%= current_user.nome %></b> - <i><%= current_user.nome_unidade %></i> | <%= link_to "Alterar Senha", change_password_user_path(current_user) %> | <%= link_to "Sair", '/logout' %>
     <% else %>
       <%= link_to 'Entrar', '/login' %>
     <% end %>
+
+    <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+
     <%= yield %>
+
   </div>
 </body>
 </html>

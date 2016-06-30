@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   end
 
   resources :opos
-  resources :users
+  resources :users do
+    member do
+    get :change_password
+    patch :do_change_password
+    end
+  end
   resources :unidades
   get 'dashboard/show'
 

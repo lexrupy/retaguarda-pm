@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: 'Usuário criado com sucesso.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Usuário alterado com sucesso.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -69,8 +69,38 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'Usuário excluído com sucesso.' }
       format.json { head :no_content }
+    end
+  end
+
+  def change_password
+    @user_to_change = current_user
+  end
+
+  def do_change_password
+    @user_to_change = current_user
+    
+    if @user_to_change.authenticate(params[:user][:old_password])
+      pw1, pw2 =  params[:user][:password], params[:user][:password_confirmation]
+      logger.debug(pw1)
+      logger.debug(pw1)
+      if pw1 == pw2
+        @user_to_change.password = pw1
+        @user_to_change.password_confirmation = pw2
+        if @user_to_change.save
+          redirect_to root_url, notice: "Senha alterada com sucesso!"
+        else
+          flash[:notice] = "Erro ao alterar a senha!"
+          render :change_password
+        end
+      else
+        flash[:notice] = "A nova senha e a confirmação não conferem!"
+        render :change_password
+      end
+    else
+      flash[:notice] = "Senha atual incorreta!"
+      render :change_password
     end
   end
 
@@ -82,6 +112,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:matricula, :nome, :unidade_id)
+      params.require(:user).permit(:matricula, :nome, :unidade_id, :reset_pwd, :old_password, :password, :password_confirmation)
     end
 end
