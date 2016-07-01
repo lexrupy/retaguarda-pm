@@ -25,6 +25,9 @@ pt-BR:
       programa:
         one: Edição
         other: Edições
+      residencia:
+        one: Residência
+        other: Residências
 
   date:
     abbr_day_names:

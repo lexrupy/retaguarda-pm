@@ -23,11 +23,11 @@
       <% end -%>
         <td><%= apenado.nome %></td>
         <td><%= apenado.endereco %></td>
-        <td><%= apenado.ativo? ? "Sim" : "Não" %></td>
+        <td><%= apenado.ativo ? "Sim" : "Não" %></td>
         <td>
-          <%= link_to 'Exibir', apenado %>|
-          <%= link_to 'Editar', edit_apenado_path(apenado) %>|
-          <%= link_to 'Apagar', apenado, method: :delete, data: { confirm: 'Tem Certeza?' } %>
+          <%= link_to 'Exibir', apenado %> |
+          <%= link_to 'Editar', edit_apenado_path(apenado) %> |
+          <%= link_to 'Excluir', apenado, method: :delete, data: { confirm: 'Tem Certeza?' } %>
         </td>
       </tr>
     <% end %>

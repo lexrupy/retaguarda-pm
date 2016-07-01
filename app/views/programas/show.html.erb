@@ -23,6 +23,7 @@
   <%= @programa.fim %>
 </p>
 
-<%= link_to 'Residências', programa_residencias_path(@programa) %> |
+
 <%= link_to 'Editar', edit_programa_path(@programa) %> |
-<%= link_to 'Voltar', programas_path %>
+<%= link_to 'Voltar', programas_path %> |
+<%= link_to 'Residências', programa_residencias_path(@programa) %>
