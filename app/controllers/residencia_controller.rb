@@ -69,6 +69,6 @@ class ResidenciaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def residencium_params
-      params.require(:residencium).permit(:telefones,, :nome, :endereco, :data_saida, :retorno_previsto, :ja_retornou, :data_retorno, :informacoes_complementares, :unidade_id, :programa_id)
+      params.require(:residencium).permit(:telefones, :nome, :endereco, :data_saida, :retorno_previsto, :ja_retornou, :data_retorno, :informacoes_complementares, :unidade_id, :programa_id)
     end
 end
