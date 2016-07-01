@@ -1,6 +1,5 @@
 class Visit < ActiveRecord::Base
   belongs_to :apenado
-  belongs_to :unidade
 
   def apenado_nome
     apenado.nome if apenado

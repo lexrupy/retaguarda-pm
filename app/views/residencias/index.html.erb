@@ -1,0 +1,45 @@
+
+
+<h1>Residências - <%= @programa.descricao %></h1>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Telefones</th>
+      <th>Nome</th>
+      <th>Endereço</th>
+      <th>Data Saída</th>
+      <th>Retorno previsto</th>
+      <% if current_user.admin? %>
+      <th>Unidade</th>
+      <% end -%>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @residencias.each do |residencia| %>
+      <tr>
+        <td><%= residencia.telefones %></td>
+        <td><%= residencia.nome %></td>
+        <td><%= residencia.endereco %></td>
+        <td><%= residencia.saida %></td>
+        <td><%= residencia.retorno %></td>
+        <% if current_user.admin? %>
+        <td><%= residencia.unidade_nome %></td>
+        <% end -%>
+        <td>
+        
+        <%= link_to 'Exibir', [@programa, residencia] %>|
+        <%= link_to 'Editar', edit_programa_residencia_path(@programa, residencia) %>|
+        <%= link_to 'Excluir', [@programa, residencia], method: :delete, data: { confirm: 'Tem certeza?' } %>
+          
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nova Residência', new_programa_residencia_path(@programa) %>

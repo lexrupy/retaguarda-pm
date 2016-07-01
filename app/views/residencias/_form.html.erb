@@ -1,0 +1,56 @@
+<%= form_for([@programa, @residencia]) do |f| %>
+  <% if @residencia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@residencia.errors.count, "error") %> prohibited this residencia from being saved:</h2>
+
+      <ul>
+      <% @residencia.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% unless @residencia.new_record? %>
+  <div class="destaque">
+    <div class="field">
+      <%= f.label :ja_retornou, "Já retornou" %><br>
+      <%= f.check_box :ja_retornou %>
+    </div>
+    <div class="field">
+      <%= f.label :data_retorno %><br>
+      <%= f.date_select :data_retorno %>
+    </div>
+  </div>
+<% end -%>
+
+  <div class="field">
+    <%= f.label :telefones %><br>
+    <%= f.text_field :telefones %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nome, "Responsável" %><br>
+    <%= f.text_field :nome, size: 40 %>
+  </div>
+  <div class="field">
+    <%= f.label :endereco, "Endereço" %><br>
+    <%= f.text_field :endereco, size: 60 %>
+  </div>
+  <div class="field">
+    <%= f.label :data_saida, "Data de Saída" %><br>
+    <%= f.date_select :data_saida %>
+  </div>
+  <div class="field">
+    <%= f.label :retorno_previsto %><br>
+    <%= f.date_select :retorno_previsto %>
+  </div>
+  <div class="field">
+    <%= f.label :informacoes_complementares, "Informações complementares" %><br>
+    <%= f.text_area :informacoes_complementares, rows: 6, cols: 80 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Apenados</h1>
 
-<table>
+<table class="data-table">
   <thead>
     <tr>
       <% if current_user.admin? -%>
@@ -11,7 +11,7 @@
       <th>Nome</th>
       <th>Endereço</th>
       <th>Ativo</th>
-      <th colspan="3">--- Ações ---</th>
+      <th>--- Ações ---</th>
     </tr>
   </thead>
 
@@ -24,9 +24,11 @@
         <td><%= apenado.nome %></td>
         <td><%= apenado.endereco %></td>
         <td><%= apenado.ativo? ? "Sim" : "Não" %></td>
-        <td><%= link_to 'Exibir', apenado %></td>
-        <td><%= link_to 'Editar', edit_apenado_path(apenado) %></td>
-        <td><%= link_to 'Apagar', apenado, method: :delete, data: { confirm: 'Tem Certeza?' } %></td>
+        <td>
+          <%= link_to 'Exibir', apenado %>|
+          <%= link_to 'Editar', edit_apenado_path(apenado) %>|
+          <%= link_to 'Apagar', apenado, method: :delete, data: { confirm: 'Tem Certeza?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

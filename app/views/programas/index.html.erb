@@ -1,15 +1,17 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Programas</h1>
 
-<table>
+<h1>Edições do Programa</h1>
+
+<table class="data-table">
   <thead>
     <tr>
-      <th>Descricao</th>
-      <th>Data inicio</th>
+      <th>Descrição</th>
+      <th>Data Início</th>
       <th>Data fim</th>
+      <% if current_user.admin? %>
       <th>Unidade</th>
-      <th colspan="3"></th>
+      <% end -%>
+      <th colspan="3">--- Ações ---</th>
     </tr>
   </thead>
 
@@ -17,12 +19,16 @@
     <% @programas.each do |programa| %>
       <tr>
         <td><%= programa.descricao %></td>
-        <td><%= programa.data_inicio %></td>
-        <td><%= programa.data_fim %></td>
-        <td><%= programa.unidade %></td>
-        <td><%= link_to 'Show', programa %></td>
-        <td><%= link_to 'Edit', edit_programa_path(programa) %></td>
-        <td><%= link_to 'Destroy', programa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= programa.inicio %></td>
+        <td><%= programa.fim %></td>
+      <% if current_user.admin? %>
+        <td><%= programa.unidade_nome %></td>
+      <% end -%>
+        <td>
+        <%= link_to 'Exibir', programa %>|
+        <%= link_to 'Editar', edit_programa_path(programa) %>|
+        <%= link_to 'Excluir', programa, method: :delete, data: { confirm: 'Tem certeza?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Programa', new_programa_path %>
+<%= link_to 'Nova edição', new_programa_path %>

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ResidenciumTest < ActiveSupport::TestCase
+class ResidenciuaTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

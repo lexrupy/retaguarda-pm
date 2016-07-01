@@ -1,0 +1,52 @@
+
+
+<% if current_user.admin? -%>
+<p>
+  <strong>Unidade:</strong>
+  <%= @residencia.unidade_nome %>
+</p>
+<% end -%>
+
+<p>
+  <strong>Telefones:</strong>
+  <%= @residencia.telefones %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @residencia.nome %>
+</p>
+
+<p>
+  <strong>Endereço:</strong>
+  <%= @residencia.endereco %>
+</p>
+
+<p>
+  <strong>Data Saída:</strong>
+  <%= @residencia.saida %>
+</p>
+
+<p>
+  <strong>Retorno previsto:</strong>
+  <%= @residencia.retorno %>
+</p>
+
+<p>
+  <strong>Já retornou:</strong>
+  <%= @residencia.ja_retornou ? "Sim" : "Não" %>
+</p>
+
+<p>
+  <strong>Data retorno:</strong>
+  <%= @residencia.retornou_em %>
+</p>
+
+<p>
+  <strong>Informacoes complementares:</strong>
+  <%= simple_format @residencia.informacoes_complementares %>
+</p>
+
+
+<%= link_to 'Editar', edit_programa_residencia_path(@programa, @residencia) %> |
+<%= link_to 'Voltar', programa_residencias_path(@programa) %>

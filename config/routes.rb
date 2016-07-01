@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :residencia
-  resources :programas
+  resources :programas do
+    resources :residencias
+  end
+
 
   resources :apenados do
     get 'pauta', on: :collection

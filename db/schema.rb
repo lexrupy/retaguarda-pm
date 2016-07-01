@@ -83,7 +83,9 @@ ActiveRecord::Schema.define(version: 20160630172522) do
 
   add_index "programas", ["unidade_id"], name: "index_programas_on_unidade_id", using: :btree
 
-  create_table "residencia", force: :cascade do |t|
+  create_table "residencias", force: :cascade do |t|
+    t.integer  "unidade_id"
+    t.integer  "programa_id"
     t.string   "telefones"
     t.string   "nome"
     t.string   "endereco"
@@ -92,14 +94,12 @@ ActiveRecord::Schema.define(version: 20160630172522) do
     t.boolean  "ja_retornou"
     t.string   "data_retorno"
     t.text     "informacoes_complementares"
-    t.integer  "unidade_id"
-    t.integer  "programa_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
 
-  add_index "residencia", ["programa_id"], name: "index_residencia_on_programa_id", using: :btree
-  add_index "residencia", ["unidade_id"], name: "index_residencia_on_unidade_id", using: :btree
+  add_index "residencias", ["programa_id"], name: "index_residencias_on_programa_id", using: :btree
+  add_index "residencias", ["unidade_id"], name: "index_residencias_on_unidade_id", using: :btree
 
   create_table "unidades", force: :cascade do |t|
     t.string   "nome"
@@ -135,8 +135,8 @@ ActiveRecord::Schema.define(version: 20160630172522) do
   add_foreign_key "opos", "unidades"
   add_foreign_key "photos", "apenados"
   add_foreign_key "programas", "unidades"
-  add_foreign_key "residencia", "programas"
-  add_foreign_key "residencia", "unidades"
+  add_foreign_key "residencias", "programas"
+  add_foreign_key "residencias", "unidades"
   add_foreign_key "visits", "apenados"
   add_foreign_key "visits", "unidades"
 end

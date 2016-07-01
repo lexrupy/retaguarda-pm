@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+
+
+
+<% if current_user.admin? -%>
+<p>
+  <strong>Unidade:</strong>
+  <%= @programa.unidade_nome %>
+</p>
+<% end -%>
 
 <p>
-  <strong>Descricao:</strong>
+  <strong>Descrição:</strong>
   <%= @programa.descricao %>
 </p>
 
 <p>
-  <strong>Data inicio:</strong>
-  <%= @programa.data_inicio %>
+  <strong>Data Início:</strong>
+  <%= @programa.inicio %>
 </p>
 
 <p>
   <strong>Data fim:</strong>
-  <%= @programa.data_fim %>
+  <%= @programa.fim %>
 </p>
 
-<p>
-  <strong>Unidade:</strong>
-  <%= @programa.unidade %>
-</p>
-
-<%= link_to 'Edit', edit_programa_path(@programa) %> |
-<%= link_to 'Back', programas_path %>
+<%= link_to 'Residências', programa_residencias_path(@programa) %> |
+<%= link_to 'Editar', edit_programa_path(@programa) %> |
+<%= link_to 'Voltar', programas_path %>

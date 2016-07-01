@@ -22,6 +22,9 @@ pt-BR:
       visit:
         one: Visita
         other: Visitas
+      programa:
+        one: Edição
+        other: Edições
 
   date:
     abbr_day_names:

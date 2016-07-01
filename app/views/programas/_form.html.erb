@@ -11,9 +11,17 @@
     </div>
   <% end %>
 
+
+  <% if current_user.admin? -%>
+    <div class="field">
+      <%= f.label :unidade_id %><br>
+      <%= select("programa", "unidade_id", Unidade.all.collect {|p| [ p.nome, p.id ] }, {include_blank: 'Nenhum'}) %>
+    </div>    
+  <% end -%>
+
   <div class="field">
     <%= f.label :descricao %><br>
-    <%= f.text_field :descricao %>
+    <%= f.text_field :descricao, size: 40 %>
   </div>
   <div class="field">
     <%= f.label :data_inicio %><br>
@@ -23,10 +31,7 @@
     <%= f.label :data_fim %><br>
     <%= f.date_select :data_fim %>
   </div>
-  <div class="field">
-    <%= f.label :unidade_id %><br>
-    <%= f.text_field :unidade_id %>
-  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

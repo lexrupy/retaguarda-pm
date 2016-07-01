@@ -4,7 +4,12 @@ class ProgramasController < ApplicationController
   # GET /programas
   # GET /programas.json
   def index
-    @programas = Programa.all
+    if current_user.admin?
+      @programas = Programa.all.paginate(:page => params[:page])
+    else
+      @programas = current_user.unidade.programas.paginate(:page => params[:page])
+    end
+    
   end
 
   # GET /programas/1
@@ -25,6 +30,11 @@ class ProgramasController < ApplicationController
   # POST /programas.json
   def create
     @programa = Programa.new(programa_params)
+
+
+    unless current_user.admin?
+      @programa.unidade_id = current_user.unidade_id
+    end
 
     respond_to do |format|
       if @programa.save
@@ -64,7 +74,12 @@ class ProgramasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_programa
-      @programa = Programa.find(params[:id])
+      if current_user.admin?
+        @programa = Programa.find(params[:id])
+      else
+        @programa = current_user.unidade.programas.find(params[:id])
+      end
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

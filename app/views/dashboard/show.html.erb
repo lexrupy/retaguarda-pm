@@ -1,1 +1,12 @@
 <h1>Bem Vindo ao Sistema de Informações de Policiamento - <%= current_user.nome_unidade %></h1>
+
+
+<% unless @programas.empty? %>
+  <div>
+  <% @programas.each do |programa| %>
+    <p>
+      <%= programa.descricao %> - <%= link_to "Cadastrar Residências", programa_residencias_path(programa) %>
+    </p>
+  <% end -%>
+  </div>
+<% end -%>

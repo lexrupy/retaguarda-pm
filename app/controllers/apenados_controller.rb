@@ -7,7 +7,7 @@ class ApenadosController < ApplicationController
     if current_user.admin?
       @apenados = Apenado.all.paginate(:page => params[:page])
     else
-      @opos = current_user.unidade.apenados.paginate(:page => params[:page])
+      @apenados = current_user.unidade.apenados.paginate(:page => params[:page])
     end
   end
 
@@ -89,7 +89,7 @@ class ApenadosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_apenado
       if current_user.admin?
-         @apenado = Apenado.find(params[:id])
+        @apenado = Apenado.find(params[:id])
       else
         @apenado = current_user.unidade.apenados.find(params[:id])
       end

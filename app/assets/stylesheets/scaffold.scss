@@ -157,3 +157,30 @@ form label {
     border-bottom:3px solid #EA0000;
   }
 }
+
+
+.data-table {
+  
+  color: #333; /* Lighten up font color */
+  font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+  border-collapse: 
+  collapse; border-spacing: 0; 
+  
+  td, th { border: 1px solid #CCC; padding: 4px; } /* Make cells a bit taller */
+
+  th {
+    background: #F3F3F3; /* Light grey background */
+    font-weight: bold; /* Make sure they're bold */
+  }
+
+  td {
+    background: #FAFAFA; /* Lighter grey background */
+    text-align: center; /* Center our text */
+  }
+}
+
+.destaque {
+  background: #FAFAFA; /* Lighter grey background */
+  padding: 4px 10px 4px 10px;
+  border: solid 1px #F3F3F3;
+}
