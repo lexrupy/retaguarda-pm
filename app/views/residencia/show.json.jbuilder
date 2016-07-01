@@ -1,0 +1,1 @@
+json.extract! @residencium, :id, :telefones,, :nome, :endereco, :data_saida, :retorno_previsto, :ja_retornou, :data_retorno, :informacoes_complementares, :unidade_id, :programa_id, :created_at, :updated_at

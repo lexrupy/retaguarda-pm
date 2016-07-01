@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @programa.descricao %>
+</p>
+
+<p>
+  <strong>Data inicio:</strong>
+  <%= @programa.data_inicio %>
+</p>
+
+<p>
+  <strong>Data fim:</strong>
+  <%= @programa.data_fim %>
+</p>
+
+<p>
+  <strong>Unidade:</strong>
+  <%= @programa.unidade %>
+</p>
+
+<%= link_to 'Edit', edit_programa_path(@programa) %> |
+<%= link_to 'Back', programas_path %>

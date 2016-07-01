@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  data_inicio: 2016-06-30
+  data_fim: 2016-06-30
+  unidade_id: 
+
+two:
+  descricao: MyString
+  data_inicio: 2016-06-30
+  data_fim: 2016-06-30
+  unidade_id: 

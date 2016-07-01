@@ -1,0 +1,57 @@
+<%= form_for(@residencium) do |f| %>
+  <% if @residencium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@residencium.errors.count, "error") %> prohibited this residencium from being saved:</h2>
+
+      <ul>
+      <% @residencium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :telefones, %><br>
+    <%= f.text_field :telefones, %>
+  </div>
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :endereco %><br>
+    <%= f.text_field :endereco %>
+  </div>
+  <div class="field">
+    <%= f.label :data_saida %><br>
+    <%= f.date_select :data_saida %>
+  </div>
+  <div class="field">
+    <%= f.label :retorno_previsto %><br>
+    <%= f.date_select :retorno_previsto %>
+  </div>
+  <div class="field">
+    <%= f.label :ja_retornou %><br>
+    <%= f.check_box :ja_retornou %>
+  </div>
+  <div class="field">
+    <%= f.label :data_retorno %><br>
+    <%= f.text_field :data_retorno %>
+  </div>
+  <div class="field">
+    <%= f.label :informacoes_complementares %><br>
+    <%= f.text_area :informacoes_complementares %>
+  </div>
+  <div class="field">
+    <%= f.label :unidade_id %><br>
+    <%= f.text_field :unidade_id %>
+  </div>
+  <div class="field">
+    <%= f.label :programa_id %><br>
+    <%= f.text_field :programa_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  telefones,: MyString
+  nome: MyString
+  endereco: MyString
+  data_saida: 2016-06-30
+  retorno_previsto: 2016-06-30
+  ja_retornou: false
+  data_retorno: MyString
+  informacoes_complementares: MyText
+  unidade_id: 
+  programa_id: 
+
+two:
+  telefones,: MyString
+  nome: MyString
+  endereco: MyString
+  data_saida: 2016-06-30
+  retorno_previsto: 2016-06-30
+  ja_retornou: false
+  data_retorno: MyString
+  informacoes_complementares: MyText
+  unidade_id: 
+  programa_id: 

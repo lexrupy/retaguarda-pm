@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Residencia</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Telefones,</th>
+      <th>Nome</th>
+      <th>Endereco</th>
+      <th>Data saida</th>
+      <th>Retorno previsto</th>
+      <th>Ja retornou</th>
+      <th>Data retorno</th>
+      <th>Informacoes complementares</th>
+      <th>Unidade</th>
+      <th>Programa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @residencia.each do |residencium| %>
+      <tr>
+        <td><%= residencium.telefones, %></td>
+        <td><%= residencium.nome %></td>
+        <td><%= residencium.endereco %></td>
+        <td><%= residencium.data_saida %></td>
+        <td><%= residencium.retorno_previsto %></td>
+        <td><%= residencium.ja_retornou %></td>
+        <td><%= residencium.data_retorno %></td>
+        <td><%= residencium.informacoes_complementares %></td>
+        <td><%= residencium.unidade %></td>
+        <td><%= residencium.programa %></td>
+        <td><%= link_to 'Show', residencium %></td>
+        <td><%= link_to 'Edit', edit_residencium_path(residencium) %></td>
+        <td><%= link_to 'Destroy', residencium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Residencium', new_residencium_path %>
