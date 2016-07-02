@@ -14,7 +14,7 @@
 
 <p>
   <strong>Termino:</strong>
-  <%= @apenado.termino %>
+  <%= @apenado.previsao_termino %>
 </p>
 
 <p>
@@ -29,7 +29,7 @@
 
 <p>
   <strong>Nascimento:</strong>
-  <%= @apenado.nascimento.strftime('%d/%m/%Y') %>
+  <%= @apenado.data_nascimento %>
 </p>
 
 <p>
@@ -78,9 +78,6 @@
     <%= image_tag photo.image_url(:thumbnail) %>
   <% end -%>
 </p>
-
-
-
 
 <%= link_to 'Editar', edit_apenado_path(@apenado) %> |
 <%= link_to 'Voltar', apenados_path %>

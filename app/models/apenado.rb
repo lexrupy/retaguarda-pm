@@ -9,4 +9,12 @@ class Apenado < ActiveRecord::Base
     unidade.nome if unidade
   end
 
+  def previsao_termino
+    termino.strftime('%d/%m/%Y') unless termino.nil?
+  end
+
+  def data_nascimento
+    nascimento.strftime('%d/%m/%Y') unless nascimento.nil?
+  end
+
 end
