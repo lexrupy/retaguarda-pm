@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       resources :opos
       resources :apenados
       resources :visitas
+      resources :programas
     end
   end
 

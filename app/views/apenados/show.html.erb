@@ -13,12 +13,12 @@
 </p>
 
 <p>
-  <strong>Termino:</strong>
-  <%= @apenado.previsao_termino %>
+  <strong>Término:</strong>
+  <%= data_str(@apenado.termino) %>
 </p>
 
 <p>
-  <strong>Restricoes:</strong>
+  <strong>Restrições:</strong>
   <%= simple_format @apenado.restricoes %>
 </p>
 
@@ -29,11 +29,11 @@
 
 <p>
   <strong>Nascimento:</strong>
-  <%= @apenado.data_nascimento %>
+  <%= data_str(@apenado.nascimento) %>
 </p>
 
 <p>
-  <strong>Mae:</strong>
+  <strong>Mãe:</strong>
   <%= @apenado.mae %>
 </p>
 

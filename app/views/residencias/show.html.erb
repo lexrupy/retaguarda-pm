@@ -24,12 +24,12 @@
 
 <p>
   <strong>Data Saída:</strong>
-  <%= @residencia.saida %>
+  <%= data_str(@residencia.data_saida) %>
 </p>
 
 <p>
   <strong>Retorno previsto:</strong>
-  <%= @residencia.retorno %>
+  <%= data_str(@residencia.retorno_previsto) %>
 </p>
 
 <p>
@@ -39,7 +39,7 @@
 
 <p>
   <strong>Data retorno:</strong>
-  <%= @residencia.retornou_em %>
+  <%= data_str(@residencia.data_retorno) %>
 </p>
 
 <p>

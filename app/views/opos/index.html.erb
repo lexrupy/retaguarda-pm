@@ -24,8 +24,8 @@
       <% end -%>
         <td><%= opo.numero %></td>
         <td><%= opo.descricao %></td>
-        <td><%= opo.inicio %></td>
-        <td><%= opo.fim %></td>
+        <td><%= data_str(opo.data_inicio) %></td>
+        <td><%= data_str(opo.data_fim) %></td>
         <td>        
         <%= link_to 'Exibir', opo %> |
         <%= link_to 'Editar', edit_opo_path(opo) %> |

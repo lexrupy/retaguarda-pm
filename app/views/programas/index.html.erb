@@ -19,8 +19,8 @@
     <% @programas.each do |programa| %>
       <tr>
         <td><%= programa.descricao %></td>
-        <td><%= programa.inicio %></td>
-        <td><%= programa.fim %></td>
+        <td><%= data_str(programa.data_inicio) %></td>
+        <td><%= data_str(programa.data_fim) %></td>
       <% if current_user.admin? %>
         <td><%= programa.unidade_nome %></td>
       <% end -%>

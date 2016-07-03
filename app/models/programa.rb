@@ -6,13 +6,4 @@ class Programa < ActiveRecord::Base
     unidade.nome if unidade
   end
 
-  def inicio
-    data_inicio.strftime('%d/%m/%Y')  unless data_inicio.nil?
-  end
-
-  def fim
-    data_fim.strftime('%d/%m/%Y')  unless data_fim.nil?
-  end
-
-
 end

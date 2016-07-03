@@ -20,8 +20,8 @@
         <td><%= residencia.telefones %></td>
         <td><%= residencia.nome %></td>
         <td><%= residencia.endereco %></td>
-        <td><%= residencia.saida %></td>
-        <td><%= residencia.retorno %></td>
+        <td><%= data_str(residencia.data_saida) %></td>
+        <td><%= data_str(residencia.retorno_previsto) %></td>
         <td>
         
         <%= link_to 'Exibir', [@programa, residencia] %> |
