@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630172522) do
+ActiveRecord::Schema.define(version: 20160703001810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,10 +92,10 @@ ActiveRecord::Schema.define(version: 20160630172522) do
     t.date     "data_saida"
     t.date     "retorno_previsto"
     t.boolean  "ja_retornou"
-    t.string   "data_retorno"
     t.text     "informacoes_complementares"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.date     "data_retorno"
   end
 
   add_index "residencias", ["programa_id"], name: "index_residencias_on_programa_id", using: :btree
@@ -113,8 +113,9 @@ ActiveRecord::Schema.define(version: 20160630172522) do
     t.boolean  "admin"
     t.integer  "unidade_id"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "ativo",           default: true
   end
 
   create_table "visits", force: :cascade do |t|

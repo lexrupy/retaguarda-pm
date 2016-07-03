@@ -16,6 +16,10 @@ json.set! :apenados do
     json.ativo ap.ativo
     json.motivo_inativo ap.motivo_inativo
     json.outras_informacoes ap.outras_informacoes
+
+    json.visitas(ap.proximas_visitas) do |vst|
+      json.data_visita vst.data_visita
+    end
     
     json.photos (ap.photos) do |photo|
       json.url photo.image_url(:thumbnail)

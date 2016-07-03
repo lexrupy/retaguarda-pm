@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_filter :authorize # => [:new, :create]
   def create
-    user = User.find_by_matricula(params[:matricula])
+    user = User.where(ativo: true).find_by_matricula(params[:matricula])
     # If the user exists AND the password entered is correct.
     if user && user.authenticate(params[:password])
       # Save the user id inside the browser cookie. This is how we keep the user

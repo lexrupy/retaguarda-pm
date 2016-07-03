@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   attr_accessor :old_password
 
   def self.authenticate(u,p)
-    user = User.find_by_matricula(u)
+    user = User.where(ativo: true).find_by_matricula(u)
     # If the user exists AND the password entered is correct.
     return user if user && user.authenticate(p)
   end

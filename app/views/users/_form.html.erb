@@ -28,10 +28,17 @@
   </div>
 
   <div class="field">
+    <%= f.label :ativo, "Usuário Ativo" %><br>
+    <%= f.check_box :ativo %>
+  </div>
+
+<% unless @user.new_record? %>
+  <div class="field">
     <%= f.label :reset_pwd, "Resetar senha" %><br>
     <%= f.check_box :reset_pwd %>
   </div>
-  
+<% end -%>
+ 
   <div class="actions">
     <%= f.submit %>
   </div>

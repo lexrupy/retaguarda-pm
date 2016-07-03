@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     resources :residencias
   end
 
-
   resources :apenados do
     get 'pauta', on: :collection
     post 'gerar_pauta', on: :collection
@@ -26,7 +25,6 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :opos
       resources :apenados
-      resources :visitas
       resources :programas
     end
   end
