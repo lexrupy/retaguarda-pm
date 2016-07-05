@@ -72,6 +72,9 @@ Rails.application.configure do
 
   config.i18n.default_locale = 'pt-BR'
 
+  
+  config.time_zone = 'Brasilia'
+
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
