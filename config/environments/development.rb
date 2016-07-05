@@ -29,6 +29,9 @@ Rails.application.configure do
 
   config.i18n.default_locale = 'pt-BR'
 
+  config.time_zone = 'Brasilia'
+  config.active_record.default_timezone = 'Brasilia'
+
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
