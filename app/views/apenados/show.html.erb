@@ -79,5 +79,16 @@
   <% end -%>
 </p>
 
+
+<p>
+  <strong>Visitas:</strong>
+  <ul>
+  <% @apenado.proximas_visitas.each do |v| %>
+   <li><%= v.data_visita %></li>
+  <% end -%>
+  </ul>
+</p>
+
+
 <%= link_to 'Editar', edit_apenado_path(@apenado) %> |
 <%= link_to 'Voltar', apenados_path %>

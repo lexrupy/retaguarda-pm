@@ -11,12 +11,12 @@ class Visit < ActiveRecord::Base
     unidade.visits.where('data_visita >= ?', Date.today).destroy_all
     dias = (data_final.to_date - Date.today.to_date).to_i
     logger.debug("QUANTIDADE DIAS = #{dias}")
-    apenado_ids = unidade.apenados.where(ativo:true).ids.shuffle
+    apenado_ids = unidade.apenados.where(ativo: true).ids.shuffle
     count = apenado_ids.size
     pos = 0
     i = 0
     begin
-      data = (i-1).day.from_now
+      data = i.day.from_now
       apenado_1_id = apenado_ids[pos]
       pos += 1
       if pos > (count-1).to_i

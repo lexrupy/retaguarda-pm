@@ -18,6 +18,7 @@ json.set! :apenados do
     json.outras_informacoes ap.outras_informacoes
 
     json.visitas(ap.proximas_visitas) do |vst|
+      json.id vst.id
       json.data_visita vst.data_visita
     end
     

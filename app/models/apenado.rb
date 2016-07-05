@@ -10,7 +10,7 @@ class Apenado < ActiveRecord::Base
   end
 
   def proximas_visitas
-    visits.where("data_visita >= ?", Date.yesterday);
+    self.visits.where("data_visita >= ?", Date.yesterday);
   end
 
 end
