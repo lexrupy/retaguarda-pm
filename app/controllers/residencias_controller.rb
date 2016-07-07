@@ -27,8 +27,6 @@ class ResidenciasController < ApplicationController
   def create
     @residencia = @programa.residencias.new(residencia_params)
 
-    @residencia.unidade_id = current_user.unidade_id
-
     respond_to do |format|
       if @residencia.save
         format.html { redirect_to [@programa, @residencia], notice: 'residencia was successfully created.' }
