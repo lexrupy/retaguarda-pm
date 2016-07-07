@@ -6,6 +6,11 @@ json.set! :programas do
     json.data_inicio data_str(pr.data_inicio)
     json.data_fim data_str(pr.data_fim)
 
+    json.setores (current_user.unidade.setores) do |set|
+      json.id set.id
+      json.nome set.nome
+    end
+
     json.residencias (pr.residencias) do |re|
       json.id re.id
       json.telefones re.telefones

@@ -25,6 +25,12 @@
 <% end -%>
 
   <div class="field">
+    <%= f.label :setor_id, "Setor" %><br>
+    <%= f.select :setor_id, Setor.all.collect {|s| [s.nome, s.id]}, {include_blank: "Nenhum"} %>
+    <%= link_to "Novo", "#", id: "create_setor" %>
+  </div>  
+
+  <div class="field">
     <%= f.label :telefones %><br>
     <%= f.text_field :telefones %>
   </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160703001810) do
+ActiveRecord::Schema.define(version: 20160707073900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,10 +96,21 @@ ActiveRecord::Schema.define(version: 20160703001810) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.date     "data_retorno"
+    t.integer  "setor_id"
   end
 
   add_index "residencias", ["programa_id"], name: "index_residencias_on_programa_id", using: :btree
+  add_index "residencias", ["setor_id"], name: "index_residencias_on_setor_id", using: :btree
   add_index "residencias", ["unidade_id"], name: "index_residencias_on_unidade_id", using: :btree
+
+  create_table "setores", force: :cascade do |t|
+    t.integer  "unidade_id"
+    t.string   "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "setores", ["unidade_id"], name: "index_setores_on_unidade_id", using: :btree
 
   create_table "unidades", force: :cascade do |t|
     t.string   "nome"
@@ -137,7 +148,9 @@ ActiveRecord::Schema.define(version: 20160703001810) do
   add_foreign_key "photos", "apenados"
   add_foreign_key "programas", "unidades"
   add_foreign_key "residencias", "programas"
+  add_foreign_key "residencias", "setores"
   add_foreign_key "residencias", "unidades"
+  add_foreign_key "setores", "unidades"
   add_foreign_key "visits", "apenados"
   add_foreign_key "visits", "unidades"
 end

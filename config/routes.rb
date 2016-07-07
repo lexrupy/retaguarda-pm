@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     post 'gerar_pauta', on: :collection
   end
 
+  resources :setores
+
   resources :opos
   resources :users do
     member do

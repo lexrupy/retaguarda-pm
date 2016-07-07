@@ -4,4 +4,5 @@ class Unidade < ActiveRecord::Base
   has_many :apenados
   has_many :visits
   has_many :programas
+  has_many :setores
 end
