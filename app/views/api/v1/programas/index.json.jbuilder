@@ -13,6 +13,7 @@ json.set! :programas do
 
     json.residencias (pr.residencias) do |re|
       json.id re.id
+      json.setor_id re.setor_id
       json.telefones re.telefones
       json.nome re.nome
       json.endereco re.endereco
